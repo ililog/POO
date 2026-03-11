@@ -42,7 +42,7 @@ int Math::Add(int count, ...) {
 char* Math::Add(const char* s1, const char* s2) {
 	if (s1 == nullptr || s2 == nullptr) return nullptr;
 	int l1 = strlen(s1), l2 = strlen(s2);
-	char* result = (char*)malloc(l1 + l2 + 1); //aloc memorie 
+	char* result = new char[l1+l2+1]; //aloc memorie 
 	strcpy(result, s1);
 	strcat(result, s2);
 	return result;

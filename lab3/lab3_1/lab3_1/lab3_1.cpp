@@ -17,6 +17,9 @@ int main()
     cout << "VariadicAdd(1,2,3,4,5,6) = " << Math::Add(1,2,3,4,5,6) << '\n';
 
     char* rez = Math::Add("123 ", "456");
-    cout << "StringAdd: " << rez << '\n';
+    if (rez != nullptr) {
+        cout << "StringAdd: " << rez << '\n';
+        delete [] rez;
+    }
     return 0;
 }
