@@ -1,45 +1,45 @@
 #include "Sort.h"
-#include<stdlib.h> //pt rand
-#include<cstdarg> //pt args
+#include<stdlib.h> 
+#include<cstdarg> 
 #include<cstring>
 #include<iostream>
 using namespace std;
 
 Sort::Sort(int count, int min, int max) {
 	this->count = count;
-	this->v = new int[count];
+	v = new int[count];
 	if (min > max) {
 		swap(min, max);
 	}
 	for (int i = 0; i < count; i++) {
-		this->v[i] = min + (max - min) * (rand() % RAND_MAX);
+		v[i] = min + rand() % (max-min+1);
 	}
 }
 
 Sort::Sort(initializer_list<int> L) {
 	this->count = L.size();
-	this->v = new int[this->count];
+	v = new int[this->count];
 
 	int i = 0;
 	for (int x : L) {
-		this->v[i] = x; i++;
+		v[i] = x; i++;
 	}
 }
 Sort::Sort(int* p, int count) {
 	this->count = count;
-	this->v = new int[count];
+	v = new int[count];
 	for (int i = 0; i < count; i++) {
-		this->v[i] = p[i];
+		v[i] = p[i];
 	}
 }
 Sort::Sort(int count, ...) {
 	this->count = count;
-	this->v = new int[count];
+	v = new int[count];
 
 	va_list args;
 	va_start(args, count);
 	for (int i = 0; i < count; i++) {
-		this->v[i] = va_arg(args, int);
+		v[i] = va_arg(args, int);
 	}
 	va_end(args);
 }
@@ -52,7 +52,7 @@ Sort::Sort(const char* s) {
 			this->count++;
 		}
 	}
-	this->v = new int[this->count];
+	v = new int[this->count];
 
 	int numar = 0, poz = 0;
 	for (int i = 0; i < l; i++) {
@@ -60,14 +60,14 @@ Sort::Sort(const char* s) {
 			numar = numar * 10 + s[i] - '0';
 		}
 		else {
-			this->v[poz++] = numar;
+			v[poz++] = numar;
 			numar = 0;
 		}
 	}
-	this->v[poz++] = numar;
+	v[poz++] = numar;
 }
 Sort::~Sort() {
-	delete[] this->v;
+	delete[] v;
 }
 
 void Sort::Print() {

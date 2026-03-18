@@ -10,7 +10,7 @@ class Sort
     void QuickSort2(int st, int dr, bool ascendent);
     int Partition(int st, int dr, bool ascendent);
 public:
-    // constuctors
+    // constructors
     Sort(int count, int min, int max); //random values in [min,max]
     Sort(initializer_list<int> L); //initializer list
     Sort(int* p, int count); //existing vector
